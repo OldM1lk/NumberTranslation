@@ -10,7 +10,7 @@ string ConvertArabicToRoman(int number) {
   string result = "";
   
   for (int ArabicIndex = 0; ArabicIndex < sizeof(ArabicNumbers) / sizeof(ArabicNumbers[0]); ++ArabicIndex) {
-    while (number >= ArabicNumbers[i]) {
+    while (number >= ArabicNumbers[ArabicIndex]) {
       result += RomanNumbers[ArabicIndex];
       number -= ArabicNumbers[ArabicIndex];
     }
