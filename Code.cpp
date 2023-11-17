@@ -4,24 +4,23 @@
 
 using namespace std;
 
-string ArabicToRoman(int number) {
-  int ArabicNums[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-  string RomanNums[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+string ConvertArabicToRoman(int number) {
+  int ArabicNumbers[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+  string RomanNumbers[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
   string result = "";
   
-  for (int ArabicIndex = 0; ArabicIndex < sizeof(ArabicNums); ++ArabicIndex) {
-    while (number >= ArabicNums[ArabicIndex]) {
-      result += RomanNums[ArabicIndex];
-      number -= ArabicNums[ArabicIndex];
+  for (int ArabicIndex = 0; ArabicIndex < sizeof(ArabicNumbers) / sizeof(ArabicNumbers[0]); ++ArabicIndex) {
+    while (number >= ArabicNumbers[i]) {
+      result += RomanNumbers[ArabicIndex];
+      number -= ArabicNumbers[ArabicIndex];
     }
   }
   return result;
 }
 
-int RomanToArabic(string roman) {
+int ConvertRomanToArabic(string roman) {
   int result = 0;
   int RomanIndex = 0;
-  
   while (RomanIndex < roman.length()) {
     if (roman[RomanIndex] == 'M') {
       result += 1000;
@@ -74,21 +73,15 @@ int RomanToArabic(string roman) {
 }
 
 int main() {
-  int arabicNumber;
-  
+  int InputArabic;
   cout << "Enter a number in arabic numerals: ";
-  
-  cin >> arabicNumber;
-  
-  cout << "In roman numerals: " << ArabicToRoman(arabicNumber) << endl;
+  cin >> InputArabic;
+  cout << "In roman numerals: " << ConvertArabicToRoman(InputArabic) << endl;
 
-  string romanNumeral;
-  
+  string InputRoman;
   cout << "Enter a number in roman numerals: ";
-  
-  cin >> romanNumeral;
-  
-  cout << "In arabic numerals: " << RomanToArabic(romanNumeral) << endl;
+  cin >> InputRoman;
+  cout << "In arabic numerals: " << ConvertRomanToArabic(InputRoman) << endl;
 
   return 0;
 }
